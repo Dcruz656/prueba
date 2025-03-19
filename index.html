@@ -5,42 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuenta Regresiva Fin de Año</title>
     <style>
+        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Menú de navegación */
+        nav {
+            background: #e44d26;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #d43d1a;
+            border-radius: 5px;
+        }
+
+        /* Secciones */
+        section {
+            padding: 80px 20px;
+            min-height: 100vh;
+        }
+
+        #inicio {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
+            flex-direction: column;
         }
+
         .container {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
         }
+
         h1 {
             color: #333;
         }
+
         #countdown {
             font-size: 1.5em;
             color: #e44d26;
             font-weight: bold;
         }
+
+        /* Animación de desplazamiento suave */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Faltan</h1>
-        <div id="countdown"></div>
-        <h1>para que termine el año</h1>
-    </div>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#info">Información</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Sección de la cuenta regresiva -->
+    <section id="inicio">
+        <div class="container">
+            <h1>Faltan</h1>
+            <div id="countdown"></div>
+            <h1>para que termine el año</h1>
+        </div>
+    </section>
+
+    <!-- Sección de información -->
+    <section id="info">
+        <h1>Información</h1>
+        <p>Esta cuenta regresiva muestra cuánto tiempo falta para que termine el año.</p>
+        <p>Se actualiza automáticamente cada segundo y calcula semanas, días, horas, minutos y segundos restantes.</p>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <h1>Contacto</h1>
+        <p>Si tienes alguna duda, puedes comunicarte con nosotros al correo: <strong>contacto@ejemplo.com</strong></p>
+    </section>
+
     <script>
         function actualizarCuentaRegresiva() {
             const ahora = new Date();
-            const finDeAno = new Date(ahora.getFullYear(), 11, 31, 23, 59, 59); // 31 de diciembre a las 23:59:59
+            const finDeAno = new Date(ahora.getFullYear(), 11, 31, 23, 59, 59);
             const diferencia = finDeAno - ahora;
 
             if (diferencia <= 0) {
@@ -59,8 +131,9 @@
                 `${semanas} semanas, ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
         }
 
-        actualizarCuentaRegresiva(); // Llamar una vez al inicio
-        setInterval(actualizarCuentaRegresiva, 1000); // Actualizar cada segundo
+        actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 1000);
     </script>
+
 </body>
 </html>
