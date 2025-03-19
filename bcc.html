@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCC</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function mostrarImagen(event) {
+            const imagenPreview = document.getElementById("imagenPreview");
+            const archivo = event.target.files[0];
+
+            if (archivo) {
+                const lector = new FileReader();
+                lector.onload = function(e) {
+                    imagenPreview.src = e.target.result;
+                    imagenPreview.style.display = "block";
+                };
+                lector.readAsDataURL(archivo);
+            }
+        }
+
+        function guardarImagen() {
+            alert("Imagen guardada correctamente.");
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -26,6 +45,13 @@
     <main>
         <h1>BCC</h1>
         <p>Bienvenidos</p>
+
+        <input type="file" accept="image/*" onchange="mostrarImagen(event)">
+        <button onclick="guardarImagen()">Guardar</button>
+
+        <div>
+            <img id="imagenPreview" src="" alt="Vista previa de la imagen" style="display: none; max-width: 300px; margin-top: 10px;">
+        </div>
     </main>
 
     <footer>
