@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva Fin de Año</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #e44d26;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Faltan</h1>
+        <div id="countdown"></div>
+        <h1>días para que termine el año</h1>
+    </div>
+    <script>
+        function actualizarCuentaRegresiva() {
+            const hoy = new Date();
+            const finDeAno = new Date(hoy.getFullYear(), 11, 31);
+            const diferencia = finDeAno - hoy;
+            const diasFaltantes = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerText = diasFaltantes;
+        }
+        actualizarCuentaRegresiva();
+    </script>
+</body>
+</html>
