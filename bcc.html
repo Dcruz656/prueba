@@ -21,7 +21,12 @@
         }
 
         function guardarImagen() {
-            alert("Imagen guardada correctamente.");
+            const imagenPreview = document.getElementById("imagenPreview").src;
+            if (imagenPreview && imagenPreview !== "") {
+                alert("Imagen guardada correctamente.");
+            } else {
+                alert("Por favor, sube una imagen antes de guardar.");
+            }
         }
     </script>
 </head>
@@ -46,11 +51,12 @@
         <h1>BCC</h1>
         <p>Bienvenidos</p>
 
-        <input type="file" accept="image/*" onchange="mostrarImagen(event)">
+        <label for="archivoImagen">Subir imagen:</label>
+        <input type="file" id="archivoImagen" accept="image/*" onchange="mostrarImagen(event)">
         <button onclick="guardarImagen()">Guardar</button>
 
         <div>
-            <img id="imagenPreview" src="" alt="Vista previa de la imagen" style="display: none; max-width: 300px; margin-top: 10px;">
+            <img id="imagenPreview" src="" alt="Vista previa de la imagen" style="display: none; max-width: 300px; margin-top: 10px; border: 1px solid #000;">
         </div>
     </main>
 
