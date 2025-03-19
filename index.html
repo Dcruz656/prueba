@@ -24,7 +24,7 @@
             color: #333;
         }
         #countdown {
-            font-size: 2em;
+            font-size: 1.5em;
             color: #e44d26;
         }
     </style>
@@ -33,17 +33,24 @@
     <div class="container">
         <h1>Faltan</h1>
         <div id="countdown"></div>
-        <h1>días para que termine el año</h1>
+        <h1>para que termine el año</h1>
     </div>
     <script>
         function actualizarCuentaRegresiva() {
             const hoy = new Date();
-            const finDeAno = new Date(hoy.getFullYear(), 11, 31);
+            const finDeAno = new Date(hoy.getFullYear(), 11, 31, 23, 59, 59);
             const diferencia = finDeAno - hoy;
-            const diasFaltantes = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
-            document.getElementById("countdown").innerText = diasFaltantes;
+
+            const semanas = Math.floor(diferencia / (1000 * 60 * 60 * 24 * 7));
+            const dias = Math.floor((diferencia % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerText = 
+                `${semanas} semanas, ${dias} días, ${horas} horas y ${minutos} minutos`;
         }
         actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 60000);
     </script>
 </body>
 </html>
