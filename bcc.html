@@ -34,16 +34,6 @@
             }
         }
 
-        // Función para guardar la imagen (en este caso simula el guardado)
-        function guardarImagen() {
-            const imagenPreview = document.getElementById("imagenPreview").src;
-            if (imagenPreview && imagenPreview !== "") {
-                alert("Imagen guardada correctamente.");
-            } else {
-                alert("Por favor, sube una imagen antes de guardar.");
-            }
-        }
-
         // Llamamos a la función para cargar la imagen guardada al cargar la página
         window.onload = cargarImagenGuardada;
     </script>
@@ -71,8 +61,6 @@
 
         <label for="archivoImagen">Subir imagen:</label>
         <input type="file" id="archivoImagen" accept="image/*" onchange="mostrarImagen(event)">
-        <button onclick="guardarImagen()">Guardar</button>
-
         <div>
             <img id="imagenPreview" src="" alt="Vista previa de la imagen" style="display: none; max-width: 300px; margin-top: 10px; border: 1px solid #000;">
         </div>
