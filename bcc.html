@@ -6,6 +6,7 @@
     <title>BCC</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        // Función para mostrar la imagen cargada
         function mostrarImagen(event) {
             const imagenPreview = document.getElementById("imagenPreview");
             const archivo = event.target.files[0];
@@ -13,13 +14,27 @@
             if (archivo) {
                 const lector = new FileReader();
                 lector.onload = function(e) {
-                    imagenPreview.src = e.target.result;
+                    const imagenBase64 = e.target.result;
+                    // Guardamos la imagen en el localStorage
+                    localStorage.setItem('imagenBCC', imagenBase64);
+                    imagenPreview.src = imagenBase64;
                     imagenPreview.style.display = "block";
                 };
                 lector.readAsDataURL(archivo);
             }
         }
 
+        // Función para cargar la imagen desde localStorage al cargar la página
+        function cargarImagenGuardada() {
+            const imagenBase64 = localStorage.getItem('imagenBCC');
+            const imagenPreview = document.getElementById("imagenPreview");
+            if (imagenBase64) {
+                imagenPreview.src = imagenBase64;
+                imagenPreview.style.display = "block";
+            }
+        }
+
+        // Función para guardar la imagen (en este caso simula el guardado)
         function guardarImagen() {
             const imagenPreview = document.getElementById("imagenPreview").src;
             if (imagenPreview && imagenPreview !== "") {
@@ -28,6 +43,9 @@
                 alert("Por favor, sube una imagen antes de guardar.");
             }
         }
+
+        // Llamamos a la función para cargar la imagen guardada al cargar la página
+        window.onload = cargarImagenGuardada;
     </script>
 </head>
 <body>
