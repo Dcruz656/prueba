@@ -1,22 +1,28 @@
-* {
+/* Aseguramos que el cuerpo ocupe toda la altura de la pantalla */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
 }
 
+/* Hacer que el contenido principal ocupe el espacio disponible */
+main {
+    padding-bottom: 50px; /* Espacio para el pie de página */
+    margin-bottom: 50px; /* Aseguramos espacio al pie */
+}
+
+/* Estilos básicos para el encabezado */
 header {
     background-color: #333;
-    padding: 10px;
+    color: white;
+    padding: 10px 0;
     text-align: center;
 }
 
+/* Estilo para la navegación */
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    padding: 0;
 }
 
 nav ul li {
@@ -27,32 +33,31 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
+/* Estilos para las secciones */
 section {
-    background-color: white;
-    margin-bottom: 20px;
     padding: 20px;
+    margin: 20px 0;
+    background-color: #f4f4f4;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+section#inicio {
+    background-color: #e0f7fa;
+}
+
+section h1, section h2 {
+    color: #00796b;
+}
+
+/* Estilos para el pie de página */
 footer {
-    text-align: center;
-    padding: 10px;
     background-color: #333;
     color: white;
-}
-
-h1, h2 {
-    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
