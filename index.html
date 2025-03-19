@@ -3,137 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuenta Regresiva Fin de Año</title>
-    <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-
-        /* Menú de navegación */
-        nav {
-            background: #e44d26;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 10px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: #d43d1a;
-            border-radius: 5px;
-        }
-
-        /* Secciones */
-        section {
-            padding: 80px 20px;
-            min-height: 100vh;
-        }
-
-        #inicio {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 60px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        #countdown {
-            font-size: 1.5em;
-            color: #e44d26;
-            font-weight: bold;
-        }
-
-        /* Animación de desplazamiento suave */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <title>Mi Página de Secciones</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#bce">BCE</a></li>
+                <li><a href="#boc">BOC</a></li>
+                <li><a href="#bio">BIO</a></li>
+                <li><a href="#bcc">BCC</a></li>
+                <li><a href="#bcg">BCG</a></li>
+                <li><a href="#bcu">BCU</a></li>
+                <li><a href="#bhi">BHI</a></li>
+                <li><a href="#bhg">BHG</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Menú de navegación -->
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#info">Información</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <main>
+        <section id="inicio">
+            <h1>Bienvenidos a la Página de Secciones</h1>
+            <p>Esta es la sección de inicio.</p>
+        </section>
 
-    <!-- Sección de la cuenta regresiva -->
-    <section id="inicio">
-        <div class="container">
-            <h1>Faltan</h1>
-            <div id="countdown"></div>
-            <h1>para que termine el año</h1>
-        </div>
-    </section>
+        <section id="bce">
+            <h2>BCE</h2>
+            <p>Contenido de la sección BCE.</p>
+        </section>
 
-    <!-- Sección de información -->
-    <section id="info">
-        <h1>Información</h1>
-        <p>Esta cuenta regresiva muestra cuánto tiempo falta para que termine el año.</p>
-        <p>Se actualiza automáticamente cada segundo y calcula semanas, días, horas, minutos y segundos restantes.</p>
-    </section>
+        <section id="boc">
+            <h2>BOC</h2>
+            <p>Contenido de la sección BOC.</p>
+        </section>
 
-    <!-- Sección de contacto -->
-    <section id="contacto">
-        <h1>Contacto</h1>
-        <p>Si tienes alguna duda, puedes comunicarte con nosotros al correo: <strong>contacto@ejemplo.com</strong></p>
-    </section>
+        <section id="bio">
+            <h2>BIO</h2>
+            <p>Contenido de la sección BIO.</p>
+        </section>
 
-    <script>
-        function actualizarCuentaRegresiva() {
-            const ahora = new Date();
-            const finDeAno = new Date(ahora.getFullYear(), 11, 31, 23, 59, 59);
-            const diferencia = finDeAno - ahora;
+        <section id="bcc">
+            <h2>BCC</h2>
+            <p>Contenido de la sección BCC.</p>
+        </section>
 
-            if (diferencia <= 0) {
-                document.getElementById("countdown").innerText = "¡Feliz Año Nuevo!";
-                return;
-            }
+        <section id="bcg">
+            <h2>BCG</h2>
+            <p>Contenido de la sección BCG.</p>
+        </section>
 
-            const segundosTotales = Math.floor(diferencia / 1000);
-            const semanas = Math.floor(segundosTotales / (7 * 24 * 60 * 60));
-            const dias = Math.floor((segundosTotales % (7 * 24 * 60 * 60)) / (24 * 60 * 60));
-            const horas = Math.floor((segundosTotales % (24 * 60 * 60)) / (60 * 60));
-            const minutos = Math.floor((segundosTotales % (60 * 60)) / 60);
-            const segundos = segundosTotales % 60;
+        <section id="bcu">
+            <h2>BCU</h2>
+            <p>Contenido de la sección BCU.</p>
+        </section>
 
-            document.getElementById("countdown").innerText = 
-                `${semanas} semanas, ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
-        }
+        <section id="bhi">
+            <h2>BHI</h2>
+            <p>Contenido de la sección BHI.</p>
+        </section>
 
-        actualizarCuentaRegresiva();
-        setInterval(actualizarCuentaRegresiva, 1000);
-    </script>
+        <section id="bhg">
+            <h2>BHG</h2>
+            <p>Contenido de la sección BHG.</p>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2025 Mi Página Web</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
